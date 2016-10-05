@@ -56,15 +56,15 @@ public class HelloFragment extends Fragment {
 
     private void cloudCall(final View v, final TextView responseTextView) {
         try {
-            JSONObject params = new JSONObject("{hello: 'world'}");
+            JSONObject params = new JSONObject("{correo: 'breinergonza@hotmail.com', password: '123456' }");
 
-            FHCloudRequest request = FH.buildCloudRequest("hello", "POST", null, params);
+            FHCloudRequest request = FH.buildCloudRequest("login", "POST", null, params);
             request.executeAsync(new FHActCallback() {
                 @Override
                 public void success(FHResponse fhResponse) {
                     Log.d(TAG, "cloudCall - success");
                     v.setEnabled(true);
-                    responseTextView.setText(fhResponse.getJson().getString("msg"));
+                    responseTextView.setText(fhResponse.getJson().toString());
                 }
 
                 @Override
