@@ -29,11 +29,32 @@
         android:text="@string/hello_world" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/BtnUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="@string/hello_button" />
+        android:text="@string/button_usuario" />
+
+    <Button
+        android:id="@+id/BtnAlmacenes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/button_almacenes" />
+
+    <Button
+        android:id="@+id/BtnCategorias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/button_categorias" />
+
+    <Button
+        android:id="@+id/BtnPromociones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/button_promociones" />
 
     <TextView
         android:id="@+id/cloud_response"

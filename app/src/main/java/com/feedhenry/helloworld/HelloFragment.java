@@ -41,24 +41,138 @@ public class HelloFragment extends Fragment {
         final View view = View.inflate(getActivity(), R.layout.hello_fragment, null);
         final TextView responseTextView = (TextView) view.findViewById(R.id.cloud_response);
 
-        Button button = (Button) view.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button BtnUsuario = (Button) view.findViewById(R.id.BtnUsuario);
+        BtnUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 responseTextView.setText("");
                 v.setEnabled(false);
-                cloudCall(v, responseTextView);
+                cloudCallUsuario(v, responseTextView);
+            }
+        });
+
+        //**********************
+
+        Button BtnAlmacenes = (Button) view.findViewById(R.id.BtnAlmacenes);
+        BtnAlmacenes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                responseTextView.setText("");
+                v.setEnabled(false);
+                cloudCallAlmacenes(v, responseTextView);
+            }
+        });
+
+        //**********************
+
+        Button BtnCategorias = (Button) view.findViewById(R.id.BtnCategorias);
+        BtnCategorias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                responseTextView.setText("");
+                v.setEnabled(false);
+                cloudCallCategorias(v, responseTextView);
+            }
+        });
+
+        //**********************
+
+        Button BtnPromociones = (Button) view.findViewById(R.id.BtnPromociones);
+        BtnPromociones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                responseTextView.setText("");
+                v.setEnabled(false);
+                cloudCallPromociones(v, responseTextView);
             }
         });
 
         return view;
     }
 
-    private void cloudCall(final View v, final TextView responseTextView) {
+    private void cloudCallUsuario(final View v, final TextView responseTextView) {
         try {
             JSONObject params = new JSONObject("{correo: 'breinergonza@hotmail.com', password: '123456' }");
 
             FHCloudRequest request = FH.buildCloudRequest("login", "POST", null, params);
+            request.executeAsync(new FHActCallback() {
+                @Override
+                public void success(FHResponse fhResponse) {
+                    Log.d(TAG, "cloudCall - success");
+                    v.setEnabled(true);
+                    responseTextView.setText(fhResponse.getJson().toString());
+                }
+
+                @Override
+                public void fail(FHResponse fhResponse) {
+                    Log.d(TAG, "cloudCall - fail");
+                    Log.e(TAG, fhResponse.getErrorMessage(), fhResponse.getError());
+                    v.setEnabled(true);
+                    responseTextView.setText(fhResponse.getErrorMessage());
+                }
+            });
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e.getCause());
+        }
+    }
+
+    private void cloudCallAlmacenes(final View v, final TextView responseTextView) {
+        try {
+            JSONObject params = new JSONObject("{fecha: '2015-09-11' }");
+
+            FHCloudRequest request = FH.buildCloudRequest("almacenes", "POST", null, params);
+            request.executeAsync(new FHActCallback() {
+                @Override
+                public void success(FHResponse fhResponse) {
+                    Log.d(TAG, "cloudCall - success");
+                    v.setEnabled(true);
+                    responseTextView.setText(fhResponse.getJson().toString());
+                }
+
+                @Override
+                public void fail(FHResponse fhResponse) {
+                    Log.d(TAG, "cloudCall - fail");
+                    Log.e(TAG, fhResponse.getErrorMessage(), fhResponse.getError());
+                    v.setEnabled(true);
+                    responseTextView.setText(fhResponse.getErrorMessage());
+                }
+            });
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e.getCause());
+        }
+    }
+
+    private void cloudCallCategorias(final View v, final TextView responseTextView) {
+        try {
+            JSONObject params = new JSONObject("{fecha: '2015-09-11' }");
+
+            FHCloudRequest request = FH.buildCloudRequest("categorias", "POST", null, params);
+            request.executeAsync(new FHActCallback() {
+                @Override
+                public void success(FHResponse fhResponse) {
+                    Log.d(TAG, "cloudCall - success");
+                    v.setEnabled(true);
+                    responseTextView.setText(fhResponse.getJson().toString());
+                }
+
+                @Override
+                public void fail(FHResponse fhResponse) {
+                    Log.d(TAG, "cloudCall - fail");
+                    Log.e(TAG, fhResponse.getErrorMessage(), fhResponse.getError());
+                    v.setEnabled(true);
+                    responseTextView.setText(fhResponse.getErrorMessage());
+                }
+            });
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage(), e.getCause());
+        }
+    }
+
+    private void cloudCallPromociones(final View v, final TextView responseTextView) {
+        try {
+            JSONObject params = new JSONObject("{fecha: '2015-09-11' }");
+
+            FHCloudRequest request = FH.buildCloudRequest("promociones", "POST", null, params);
             request.executeAsync(new FHActCallback() {
                 @Override
                 public void success(FHResponse fhResponse) {

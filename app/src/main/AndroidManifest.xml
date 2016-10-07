@@ -13,12 +13,12 @@
 
     <application
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
         android:theme="@style/MyTheme.Base"
         tools:replace="android:icon">
         <activity
-            android:name="com.feedhenry.helloworld.LoginActivity"
+            android:name="com.feedhenry.helloworld.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.feedhenry.helloworld.MainActivity"
+            android:name="com.feedhenry.helloworld.LoginActivity"
             android:label="@string/title_activity_login"></activity>
     </application>
 
