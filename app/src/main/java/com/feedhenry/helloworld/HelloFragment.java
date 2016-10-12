@@ -30,6 +30,8 @@ import com.feedhenry.sdk.FHActCallback;
 import com.feedhenry.sdk.FHResponse;
 import com.feedhenry.sdk.api.FHCloudRequest;
 
+import android.content.Intent;
+
 import org.json.fh.JSONArray;
 import org.json.fh.JSONObject;
 
@@ -88,10 +90,24 @@ public class HelloFragment extends Fragment {
             }
         });
 
+        //**********************
+        Button BtnLogin = (Button) view.findViewById(R.id.BtnLogin);
+        BtnPromociones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                responseTextView.setText("");
+                v.setEnabled(false);
+
+                Intent myIntent = new Intent(view.getContext(), LoginActivity.class);
+                startActivityForResult(myIntent, 0);
+
+            }
+        });
+
         return view;
     }
 
-    private void cloudCallUsuario(final View v, final TextView responseTextView) {
+    public void cloudCallUsuario(final View v, final TextView responseTextView) {
         try {
             JSONObject params = new JSONObject("{correo: 'breinergonza@hotmail.com', password: '123456' }");
 

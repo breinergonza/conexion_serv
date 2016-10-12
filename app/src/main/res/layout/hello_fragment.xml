@@ -56,9 +56,16 @@
         android:layout_marginBottom="20dp"
         android:text="@string/button_promociones" />
 
+    <Button
+        android:id="@+id/BtnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/button_login" />
+
     <TextView
-        android:id="@+id/cloud_response"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    android:id="@+id/cloud_response"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
 
 </LinearLayout>
