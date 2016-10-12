@@ -30,6 +30,7 @@ import com.feedhenry.sdk.FHActCallback;
 import com.feedhenry.sdk.FHResponse;
 import com.feedhenry.sdk.api.FHCloudRequest;
 
+import org.json.fh.JSONArray;
 import org.json.fh.JSONObject;
 
 public class HelloFragment extends Fragment {
@@ -126,7 +127,24 @@ public class HelloFragment extends Fragment {
                 public void success(FHResponse fhResponse) {
                     Log.d(TAG, "cloudCall - success");
                     v.setEnabled(true);
-                    responseTextView.setText(fhResponse.getJson().toString());
+                    //responseTextView.setText(fhResponse.getJson().toString());
+
+                    int Id;
+                    String RazonSocial;
+                    String resp = "";
+
+                    JSONArray array = fhResponse.getArray();
+
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject row = array.getJSONObject(i);
+                        Id = row.getInt("Id");
+                        RazonSocial = row.getString("RazonSocial");
+
+                        resp += "Id : " + Id + ", Razon Social : " + RazonSocial + "\n";
+                    }
+
+                    responseTextView.setText(resp);
+
                 }
 
                 @Override
@@ -152,7 +170,24 @@ public class HelloFragment extends Fragment {
                 public void success(FHResponse fhResponse) {
                     Log.d(TAG, "cloudCall - success");
                     v.setEnabled(true);
-                    responseTextView.setText(fhResponse.getJson().toString());
+                    //responseTextView.setText(fhResponse.getJson().toString());
+
+                    int Id;
+                    String Nombre;
+                    String resp = "";
+
+                    JSONArray array = fhResponse.getArray();
+
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject row = array.getJSONObject(i);
+                        Id = row.getInt("Id");
+                        Nombre = row.getString("Nombre");
+
+                        resp += "Id : " + Id + ", Nombre : " + Nombre + "\n";
+                    }
+
+                    responseTextView.setText(resp);
+
                 }
 
                 @Override
@@ -178,7 +213,24 @@ public class HelloFragment extends Fragment {
                 public void success(FHResponse fhResponse) {
                     Log.d(TAG, "cloudCall - success");
                     v.setEnabled(true);
-                    responseTextView.setText(fhResponse.getJson().toString());
+                   // responseTextView.setText(fhResponse.getJson().toString());
+
+                    int Id;
+                    String Descripcion;
+                    String resp = "";
+
+                    JSONArray array = fhResponse.getArray();
+
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject row = array.getJSONObject(i);
+                        Id = row.getInt("Id");
+                        Descripcion = row.getString("Descripcion");
+
+                        resp += "Id : " + Id + ", Descripcion : " + Descripcion + "\n";
+                    }
+
+                    responseTextView.setText(resp);
+
                 }
 
                 @Override
