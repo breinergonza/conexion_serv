@@ -92,7 +92,7 @@ public class HelloFragment extends Fragment {
 
         //**********************
         Button BtnLogin = (Button) view.findViewById(R.id.BtnLogin);
-        BtnPromociones.setOnClickListener(new View.OnClickListener() {
+        BtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 responseTextView.setText("");
