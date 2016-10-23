@@ -1,23 +1,19 @@
-package com.feedhenry.helloworld;
+package com.feedhenry.armark;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.ContentResolver;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Build.VERSION;
+import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-import android.content.ContentResolver;
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build.VERSION;
-import android.os.Build;
-import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -29,23 +25,16 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.feedhenry.helloworld_android.R;
 
-import com.feedhenry.helloworld_android.R;
 import com.feedhenry.sdk.FH;
 import com.feedhenry.sdk.FHActCallback;
 import com.feedhenry.sdk.FHResponse;
 import com.feedhenry.sdk.api.FHCloudRequest;
 
-import android.content.Intent;
-
-import org.json.fh.JSONArray;
 import org.json.fh.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import android.util.Log;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -59,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     private static final int REQUEST_READ_CONTACTS = 0;
 
-    private static final String TAG = InitFragment.class.getName();
+    private static final String TAG ="";// InitFragment.class.getName();
 
     public Boolean resp = false;
 
@@ -112,8 +101,6 @@ public class LoginActivity extends AppCompatActivity {
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
-
-
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
